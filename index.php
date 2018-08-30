@@ -28,14 +28,16 @@
 	$conn = ConnectToDabase();
 
 	// Get data for expense categories
-	$tsql="SELECT CATEGORY FROM Parking_Categories ORDER BY CATEGORY ASC";
-	$Parking_Categories= sqlsrv_query($conn, $tsql);
+	$tsql="SELECT * FROM VehicleReg";
+	$VehicleReg= sqlsrv_query($conn, $tsql);
 
 	// Populate dropdown menu options 
+	/*
 	$options = '';
-	while($row = sqlsrv_fetch_array($Parking_Categories)) {
+	while($row = sqlsrv_fetch_array($VehicleReg)) {
 		$options .="<option>" . $row['CATEGORY'] . "</option>";
 	}
+*/
 
 	// Close SQL database connection
 	sqlsrv_close ($conn);
@@ -79,9 +81,6 @@ The PHP script insertToDb.php will be executed after the user clicks "Submit"-->
 
 		<label>Employee Name:</label>
 		<input type="text" name="employee_name" >
-
-		<label>Notes (optional) [no accents or tildes]:</label>
-		<input type="text" name="input_note" ><br>
 
 		<button type="submit">Submit</button>
 	</form>
